@@ -40,17 +40,23 @@ const siteContent = {
 // Example: Update the img src for the logo
 let logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"])
-const nav = document.querySelector('nav')
-const navItems = document.querySelectorAll('header nav a');
+
+const body = document.querySelector('body');
+const nav = document.querySelector('nav');
+let navItems = document.querySelectorAll('header nav a');
 const header = document.querySelector('header');
 const headLine = document.querySelector('.cta-text h1');
+const headLineText = document.querySelector('.cta-text')
 const button = document.querySelector('.cta-text button');
 const circleImg = document.querySelector('#cta-img');
+const topContent = document.querySelector('.top-content')
 const topContentH4 = document.querySelectorAll('.top-content .text-content h4');
 const topContentP = document.querySelectorAll('.top-content .text-content p')
 const middleImg = document.querySelector('#middle-img');
+const bottomContent = document.querySelector('.bottom-content');
 const bottomContentH4 = document.querySelectorAll('.bottom-content .text-content h4');
 const bottomContentP = document.querySelectorAll('.bottom-content .text-content p')
+const contact = document.querySelector('.contact');
 const contactH4 = document.querySelector('.contact h4');
 const contactP = document.querySelectorAll('.contact p')
 const footerP = document.querySelector('footer p')
@@ -108,10 +114,40 @@ footerP.textContent = 'Copyright Great Idea! 2018';
 // New Content (Task 3)
 const homeNav = document.createElement('a');
 homeNav.textContent = 'Home';
+homeNav.style.color = 'green';
 const codeNav = document.createElement('a');
-codeNav.textContent = 'Code'
+codeNav.textContent = 'Code';
+codeNav.style.color = 'green';
 nav.prepend(homeNav);
 nav.appendChild(codeNav);
 navItems.forEach(item => item.style.color = 'green');
 
-// console.log(contactP)
+// Stretch 
+const changeButton = document.createElement('button');
+changeButton.textContent = 'Dark Theme'
+changeButton.style.background = 'black';
+changeButton.style.color = 'white';
+headLineText.appendChild(changeButton);
+
+// Build function for Dark Theme button click
+const darkTheme = function() {
+  body.style.background = 'black';
+  navItems.forEach(item => item.style.color = '#00acff')
+  homeNav.style.color = '#00acff';
+  codeNav.style.color = '#00acff';
+  headLine1.style.color = '#00acff';
+  headLine2.style.color = '#14de44';
+  headLine3.style.color = '#00acff';
+  button.style.background = '#14de44';
+  topContent.style.color = '#00acff';
+  bottomContent.style.color = '#fc8cd4';
+  contact.style.color = '#00acff';
+  footerP.style.color = '#fc8cd4';
+}
+
+
+
+
+// Button Click Event
+changeButton.addEventListener('click', darkTheme)
+
