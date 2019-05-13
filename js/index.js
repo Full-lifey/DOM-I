@@ -40,6 +40,7 @@ const siteContent = {
 // Example: Update the img src for the logo
 let logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"])
+const nav = document.querySelector('nav')
 const navItems = document.querySelectorAll('header nav a');
 const header = document.querySelector('header');
 const headLine = document.querySelector('.cta-text h1');
@@ -99,8 +100,18 @@ contactP[1].textContent = 'Somewhere, USA';
 contactP[2].textContent = '1 (888) 888-8888'
 const contactEmail = document.createElement('p');
 contactEmail.textContent = 'sales@greatidea.io';
-contactP[2].append(contactEmail)
+contactP[2].append(contactEmail);
 
 // Build Footer
-footerP.textContent = 'Copyright Great Idea! 2018'
+footerP.textContent = 'Copyright Great Idea! 2018';
+
+// New Content (Task 3)
+const homeNav = document.createElement('a');
+homeNav.textContent = 'Home';
+const codeNav = document.createElement('a');
+codeNav.textContent = 'Code'
+nav.prepend(homeNav);
+nav.appendChild(codeNav);
+navItems.forEach(item => item.style.color = 'green');
+
 // console.log(contactP)
